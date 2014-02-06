@@ -1,0 +1,12 @@
+<h3>Welcome {{username}}</h3>
+{{#form-for model wrapper='twitter-bootstrap-3'}}
+  {{input username}}
+  {{input email}}
+  {{input password}}
+  {{input passwordConfirmation}}
+  {{#if isValid}}
+    <button type='submit' {{action 'submit'}} class='btn btn-primary'>Submit</button>
+  {{else}}
+    <button class='btn' disabled='disabled'>Fill out your details above</button>
+  {{/if}}
+{{/form-for}}
