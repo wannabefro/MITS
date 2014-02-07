@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable,
          :token_authenticatable
   attr_accessor :login
+  has_many :mits
   validates_presence_of :username
   validates_uniqueness_of :username
 

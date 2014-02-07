@@ -19,6 +19,7 @@
 //= require ember-easyForm
 //= require ember-validations
 //= require ember-simple-auth
+//= require moment.min
 //= require_self
 //= require mits
 

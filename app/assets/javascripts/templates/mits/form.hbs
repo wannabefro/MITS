@@ -1,0 +1,10 @@
+{{#form-for model}}
+  {{input title}}
+  {{input body as="text"}}
+  {{#if isValid}}
+    <button type='submit' {{action 'save' this}} class='btn btn-primary'>Submit</button>
+  {{else}}
+    <button class='btn' disabled='disabled'>Create your Mit above</button>
+  {{/if}}
+  <button type='submit' {{action cancel}} class='btn btn-warning'>Cancel</button>
+{{/form-for}}

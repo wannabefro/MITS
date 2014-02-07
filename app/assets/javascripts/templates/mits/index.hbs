@@ -1,0 +1,6 @@
+<h3>{{#link-to 'mits.new'}}Create a new Mit{{/link-to}}</h3>
+{{#each}}
+{{date}}<br>
+{{#link-to 'mits.show' this}}{{title}}{{/link-to}}<br>
+{{body}}<br>
+{{/each}}

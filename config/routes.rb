@@ -7,6 +7,7 @@ Mits::Application.routes.draw do
         post "sign_in" => "sessions#create"
         post "sign_out" => "sessions#destroy"
       end
+      resources :mits
     end
   end
   root :to => 'assets#index'

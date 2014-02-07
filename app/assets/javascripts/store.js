@@ -1,4 +1,7 @@
 // http://emberjs.com/guides/models/using-the-store/
+DS.RESTAdapter.reopen({
+    namespace: 'api/v1'
+});
 
 App.Store = DS.Store.extend({
   // Override the default adapter with the `DS.ActiveModelAdapter` which
@@ -6,7 +9,4 @@ App.Store = DS.Store.extend({
   adapter: '-active-model'
 });
 
-App.ApplicationAdapter = DS.RESTAdapter.extend({
-    namespace: 'api/v1'
-});
 
