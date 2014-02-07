@@ -3,7 +3,7 @@ class Api::V1::MitsController < ApplicationController
   respond_to :json
   respond_to :html, only: []
   respond_to :xml, only: []
-  
+
   def index
     @mits = Mit.where(user: current_user)
     respond_with @mits
@@ -11,7 +11,6 @@ class Api::V1::MitsController < ApplicationController
 
   def create
     @mit = Mit.new(mit_params)
-    @mit.user_id = params[:mit][:user]
     if @mit.save
       respond_with @mit, status: :created, location: [:api, :v1, @mit]
     else
@@ -21,6 +20,18 @@ class Api::V1::MitsController < ApplicationController
 
   def show
     respond_with @mit
+  end
+
+  def update
+    if @mit.user == current_user
+      if @mit.update(mit_params)
+        respond_with @mit, status: :ok, location: [:api, :v1, @mit]
+      else
+        render json: @mit.errors, status: :unprocessable_entity
+      end
+    else
+      render status: :unprocessable_entity
+    end
   end
 
   def destroy

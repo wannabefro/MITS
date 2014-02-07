@@ -23,12 +23,12 @@
       </ul>
       <ul class="nav navbar-nav navbar-right">
         {{#if session.isAuthenticated}}
-        <li><a {{action 'invalidateSession'}}>Logout</a></li>
+        <li><a {{action 'invalidateSession'}} href='#'>Logout</a></li>
         {{else}}
         {{#link-to 'register' tagName='li' href=false}}
           {{#link-to 'register'}}Sign Up{{/link-to}}
         {{/link-to}}
-        <form class="form-inline navbar-btn" {{action login on='submit'}}>
+        <form class="form-inline navbar-btn" {{action "login" on='submit'}}>
           <div class="form-group">
             {{input class="username form-control" value=identification type="text" placeholder="Username or Email"}}
           </div>

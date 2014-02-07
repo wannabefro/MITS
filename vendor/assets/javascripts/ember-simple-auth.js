@@ -31,7 +31,7 @@ Ember.SimpleAuth = Ember.Namespace.create({
     @type String
     @default 'login'
   */
-  authenticationRoute: 'login',
+  authenticationRoute: 'index',
   /**
     The route to transition to after successful authentication; can be set
     through [Ember.SimpleAuth.setup](#Ember-SimpleAuth-setup).
@@ -269,6 +269,7 @@ Ember.SimpleAuth.Session = Ember.ObjectProxy.extend({
       _this.authenticator.invalidate(_this.content).then(function() {
         _this.authenticator.off('ember-simple-auth:session-updated');
         $.post('api/v1/sign_out');
+        App.__container__.lookup('controller:application').set('currentUser', null);
         _this.clear();
         resolve();
       }, function(error) {

@@ -3,4 +3,9 @@
 </div>
 {{title}}
 {{body}}
-<button {{action destroyRecord this}}>Delete</button>
+{{#if isOwner}}
+  <button class='btn' {{action destroyRecord this}}>Delete</button>
+{{/if}}
+{{#if canEdit}}
+  {{#link-to 'mits.edit' this classNames='btn btn-primary'}}Edit{{/link-to}}
+{{/if}}
