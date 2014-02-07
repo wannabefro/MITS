@@ -9,6 +9,7 @@ Mits::Application.routes.draw do
       end
       resources :mits
       resources :comments, only: [:index, :create]
+      resources :teams
     end
   end
   root :to => 'assets#index'

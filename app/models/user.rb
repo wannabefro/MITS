@@ -9,6 +9,8 @@ class User < ActiveRecord::Base
   attr_accessor :login
   has_many :mits
   has_many :comments
+  has_many :memberships
+  has_many :teams, through: :memberships
   validates_presence_of :username
   validates_uniqueness_of :username
 

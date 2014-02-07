@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140207160134) do
+ActiveRecord::Schema.define(version: 20140207231950) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,22 @@ ActiveRecord::Schema.define(version: 20140207160134) do
     t.datetime "updated_at"
   end
 
+  add_index "comments", ["mit_id"], name: "index_comments_on_mit_id", using: :btree
+  add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
+
+  create_table "memberships", force: true do |t|
+    t.integer  "user_id",                        null: false
+    t.integer  "team_id",                        null: false
+    t.string   "state",      default: "pending"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.boolean  "admin",      default: false
+  end
+
+  add_index "memberships", ["admin"], name: "index_memberships_on_admin", where: "(admin = true)", using: :btree
+  add_index "memberships", ["team_id"], name: "index_memberships_on_team_id", using: :btree
+  add_index "memberships", ["user_id"], name: "index_memberships_on_user_id", using: :btree
+
   create_table "mits", force: true do |t|
     t.string   "title",      null: false
     t.text     "body"
@@ -33,6 +49,12 @@ ActiveRecord::Schema.define(version: 20140207160134) do
   end
 
   add_index "mits", ["user_id"], name: "index_mits_on_user_id", using: :btree
+
+  create_table "teams", force: true do |t|
+    t.string   "name",       null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "username",               default: "", null: false

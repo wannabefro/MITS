@@ -13,6 +13,10 @@ App.Router.map(function() {
     this.route('new');
     this.route('edit', {path: '/:mit_id/edit'});
   });
+  this.resource('teams', function(){
+    this.route('index', {path: '/'});
+    this.route('new');
+  });
 });
 
 App.Router.extend({

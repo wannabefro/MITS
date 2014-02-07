@@ -48,7 +48,8 @@ end
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
-#
+gem 'state_machine'
+
 gem 'bootstrap-sass'
 gem 'devise', '3.0.4'
 

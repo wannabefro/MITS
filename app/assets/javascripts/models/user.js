@@ -1,7 +1,8 @@
 App.User = DS.Model.extend(Ember.Validations.Mixin, {
   username: DS.attr(),
   mits: DS.hasMany('mit'),
-  comments: DS.hasMany('comment')
+  comments: DS.hasMany('comment'),
+  memberships: DS.hasMany('membership')
 });
 
 App.User.reopen({
