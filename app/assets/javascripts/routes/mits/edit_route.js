@@ -10,11 +10,11 @@ App.MitsEditRoute = Ember.Route.extend(Ember.SimpleAuth.AuthenticatedRouteMixin,
     save: function(model) {
       var _this = this;
       model.save().then(function() {
-        _this.transitionTo('mits.show', model);
+        _this.transitionTo('mit.index', model);
       });
     },
     cancel: function(model) {
-      this.transitionTo('mits.show', model);
+      this.transitionTo('mit.index', model);
     }
   }
 });

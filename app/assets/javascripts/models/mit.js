@@ -3,6 +3,7 @@ App.Mit = DS.Model.extend(Ember.Validations.Mixin, {
   body: DS.attr(),
   createdAt: DS.attr(),
   user: DS.belongsTo('user'),
+  comments: DS.hasMany('comment'),
 
   date: function(){
     return moment(this.get('createdAt')).format("MM-DD-YYYY");

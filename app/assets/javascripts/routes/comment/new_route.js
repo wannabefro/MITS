@@ -1,7 +1,8 @@
-App.MitsNewRoute = Ember.Route.extend({
-  model: function(){
+App.CommentNewRoute = Ember.Route.extend(Ember.SimpleAuth.AuthenticatedRouteMixin, {
+  model: function(query, transition){
+    var mit = this.store.getById('mit', transition.params.mit.mit_id);
     var user = this.controllerFor('application').get('currentUser');
-    return this.store.createRecord('mit', {user: user});
+    return this.store.createRecord('comment', {user: user, mit: mit});
   },
   deactivate: function() {
     var model = this.get('controller.model');
@@ -13,7 +14,7 @@ App.MitsNewRoute = Ember.Route.extend({
     save: function(model) {
       var _this = this;
       model.save().then(function() {
-        _this.transitionTo('mits.show', model);
+        _this.transitionTo('mit', model.get('mit'));
       });
     },
     cancel: function() {

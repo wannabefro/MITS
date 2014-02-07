@@ -8,6 +8,7 @@ Mits::Application.routes.draw do
         post "sign_out" => "sessions#destroy"
       end
       resources :mits
+      resources :comments, only: [:index, :create]
     end
   end
   root :to => 'assets#index'

@@ -4,10 +4,14 @@ App.Router.map(function() {
   this.route('index', {path: '/'});
   this.route('register', {path: 'sign_up'});
   this.resource('mits', function(){
+    this.resource('mit', {path: ':mit_id'}, function(){
+      this.resource('comment', function(){
+        this.route('new', {path: '/'});
+      });
+    });
     this.route('index', {path: '/'});
     this.route('new');
-    this.route('show', {path: ':mit_id'});
-    this.route('edit', {path: ':mit_id/edit'});
+    this.route('edit', {path: '/:mit_id/edit'});
   });
 });
 

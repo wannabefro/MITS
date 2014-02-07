@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
          :token_authenticatable
   attr_accessor :login
   has_many :mits
+  has_many :comments
   validates_presence_of :username
   validates_uniqueness_of :username
 

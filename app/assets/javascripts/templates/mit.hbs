@@ -1,0 +1,18 @@
+<div class='page-header'>
+  <h1>Mit <small>for {{date}}</small></h1>
+</div>
+{{title}}
+{{body}}
+{{#if isOwner}}
+  <button class='btn' {{action destroyRecord this}}>Delete</button>
+{{/if}}
+{{#if canEdit}}
+  {{#link-to 'mits.edit' this classNames='btn btn-primary'}}Edit{{/link-to}}
+{{/if}}
+{{outlet}}
+{{#each cleanComments}}
+{{user.username}} {{body}}{{timeAgo createdAt}}<br>
+{{else}}
+<h5>There are currently no comments. {{#link-to 'comment.new' this}}Create one{{/link-to}}</h5>
+{{/each}}
+  {{#link-to 'comment.new' this classNames='btn btn-default'}}<span class="glyphicon glyphicon-plus"></span> Comment{{/link-to}}

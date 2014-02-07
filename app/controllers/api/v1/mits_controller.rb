@@ -1,5 +1,7 @@
 class Api::V1::MitsController < ApplicationController
   before_action :set_mit, only: [:show, :update, :destroy]
+  before_action :authenticate_user!, except: [:show]
+  before_action :is_owner, only: [:update, :destroy]
   respond_to :json
   respond_to :html, only: []
   respond_to :xml, only: []
@@ -23,15 +25,11 @@ class Api::V1::MitsController < ApplicationController
   end
 
   def update
-    if @mit.user == current_user
       if @mit.update(mit_params)
         respond_with @mit, status: :ok, location: [:api, :v1, @mit]
       else
         render json: @mit.errors, status: :unprocessable_entity
       end
-    else
-      render status: :unprocessable_entity
-    end
   end
 
   def destroy
@@ -46,5 +44,11 @@ class Api::V1::MitsController < ApplicationController
 
   def mit_params
     params.require(:mit).permit(:title, :body, :user_id)
+  end
+
+  def is_owner
+    if (@mit.user != current_user)
+      render json: status::unprocessable_entity
+    end
   end
 end
