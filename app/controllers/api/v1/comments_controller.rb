@@ -5,7 +5,11 @@ class Api::V1::CommentsController < ApplicationController
   respond_to :xml, only: []
 
   def index
-    @comments = Comment.where(mit: params[:comment][:mit_id])
+    if params[:comment]
+      @comments = Comment.where(mit: params[:comment][:mit_id])
+    elsif params[:ids]
+      @comments = Comment.find(params[:ids][0])
+    end
     respond_with @comments
   end
 
