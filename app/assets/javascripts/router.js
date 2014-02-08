@@ -17,6 +17,9 @@ App.Router.map(function() {
     this.route('index', {path: '/'});
     this.route('new');
     this.route('show', {path: ':team_id'});
+    this.resource('team_admin', {path: ':team_id/admin'}, function(){
+      this.route('index', {path: '/'});
+    });
   });
 });
 

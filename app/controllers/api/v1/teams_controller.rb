@@ -1,6 +1,6 @@
 class Api::V1::TeamsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_team, only: [:show, :update, :destroy]
+  before_action :set_team, only: [:show, :update, :destroy, :admin_check]
   respond_to :json
   respond_to :html, only: []
   respond_to :xml, only: []
@@ -23,6 +23,14 @@ class Api::V1::TeamsController < ApplicationController
 
   def show
     render json: @team
+  end
+
+  def admin_check
+    if @team.admins.include?(current_user)
+      render json: :success
+    else
+      render json: {message: "You are not an admin for #{@team.name}"}, status: :unauthorized
+    end
   end
 
   private

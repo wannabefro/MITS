@@ -13,4 +13,8 @@ class Team < ActiveRecord::Base
     membership.admin = true
     membership.save!
   end
+
+  def admins
+    users.references(:memberships).where(memberships: {admin: true})
+  end
 end

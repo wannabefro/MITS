@@ -4,6 +4,12 @@ App.TeamsShowRoute = Ember.Route.extend({
   },
 
   actions: {
+    removeMember: function(model){
+      model.deleteRecord();
+    },
+    newMember: function(model){
+      this.store.createRecord('membership', {team: model, state: 'new'});
+    },
     addMembers: function(model){
       this.store.createRecord('membership', {team: model, state: 'new'});
       this.controller.toggleProperty('showMemberForm');

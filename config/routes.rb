@@ -9,7 +9,11 @@ Mits::Application.routes.draw do
       end
       resources :mits
       resources :comments, only: [:index, :create]
-      resources :teams
+      resources :teams do
+        member do
+          get 'admin_check'
+        end
+      end
     end
   end
   root :to => 'assets#index'

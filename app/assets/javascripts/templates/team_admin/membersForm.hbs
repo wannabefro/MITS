@@ -1,0 +1,8 @@
+{{#form-for model wrapper='twitter-bootstrap-3'}}
+  {{#each invites}}
+  {{input user placeholder='Username or email'}}
+  <button {{action 'removeMember' this}} class='btn btn-defaut'><span class='glyphicon glyphicon-remove'></span></button>
+  <br>
+  {{/each}}
+  <button {{action 'newMember' this}} class='btn btn-primary'>Add another member</button>
+{{/form-for}}
