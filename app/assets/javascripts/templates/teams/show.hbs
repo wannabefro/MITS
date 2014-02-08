@@ -10,9 +10,11 @@
     {{username}}
   {{/each}}
 {{/if}}
-{{#if showMemberForm}}
-  {{partial 'teams/membersForm'}}
-  <button {{action 'cancel' this}} class='btn btn-warning'>Cancel</button>
-{{else}}
-  <button {{action 'addMembers' this}} class='btn btn-default'><span class="glyphicon glyphicon-plus"></span> Add Members</button>
+{{#if isAdmin}}
+  {{#if showMemberForm}}
+    {{partial 'teams/membersForm'}}
+    <button {{action 'cancel' this}} class='btn btn-warning'>Cancel</button>
+  {{else}}
+    <button {{action 'addMembers' this}} class='btn btn-default'><span class="glyphicon glyphicon-plus"></span> Add Members</button>
+  {{/if}}
 {{/if}}

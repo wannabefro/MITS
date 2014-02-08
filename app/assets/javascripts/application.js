@@ -20,6 +20,7 @@
 //= require ember-validations
 //= require ember-simple-auth
 //= require moment.min
+//= require underscore.min
 //= require_self
 //= require mits
 

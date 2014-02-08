@@ -271,6 +271,7 @@ Ember.SimpleAuth.Session = Ember.ObjectProxy.extend({
         $.post('api/v1/sign_out');
         App.__container__.lookup('controller:application').set('currentUser', null);
         _this.clear();
+        App.__container__.lookup('store:main').init();
         resolve();
       }, function(error) {
         reject(error);
