@@ -1,0 +1,12 @@
+<div class="pageheader">
+  <h3>Create a new team: {{name}}</h3>
+</div>
+{{#form-for model wrapper='twitter-bootstrap-3'}}
+  {{input name}}
+  {{#if isValid}}
+    <button type='submit' {{action 'save' this}} class='btn btn-primary'>Submit</button>
+  {{else}}
+    <button class='btn' disabled='disabled'>Create your Team above</button>
+  {{/if}}
+  <button type='submit' {{action cancel this}} class='btn btn-warning'>Cancel</button>
+{{/form-for}}
