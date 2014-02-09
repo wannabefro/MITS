@@ -1,4 +1,4 @@
-App.TeamAdminIndexRoute = Ember.Route.extend({
+App.TeamAdminIndexRoute = Ember.Route.extend(Ember.SimpleAuth.AuthenticatedRouteMixin, {
   beforeModel: function(transition){
     var _this = this;
     try {
