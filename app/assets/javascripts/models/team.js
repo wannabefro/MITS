@@ -10,7 +10,7 @@ App.Team = DS.Model.extend(Ember.Validations.Mixin, {
     return users;
   }.property('users.@each', 'memberships.@each'),
 
-  currentMembers: function(){
+  members: function(){
     currentMembers = this.get('memberships').filterBy('state', 'accepted');
     users = currentMembers.map(function(member){
       return member.get('user');

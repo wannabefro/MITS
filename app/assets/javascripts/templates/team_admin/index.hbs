@@ -1,8 +1,20 @@
 <div class="page-header">
   <h1>Admin panel for {{name}}</h1>
 </div>
+<h5>Members</h5>
+{{#each members}}
+  {{username}}
+{{/each}}
+<br>
+{{#if pendingMembers}}
+  <h5>Pending members</h5>
+  {{#each pendingMembers}}
+    {{username}}
+  {{/each}}
+{{/if}}
+<br>
   {{#if showMemberForm}}
-    {{partial 'teams/membersForm'}}
+    {{partial 'team_admin/membersForm'}}
     <button {{action 'cancel' this}} class='btn btn-warning'>Cancel</button>
   {{else}}
     <button {{action 'addMembers' this}} class='btn btn-default'><span class="glyphicon glyphicon-plus"></span> Add Members</button>

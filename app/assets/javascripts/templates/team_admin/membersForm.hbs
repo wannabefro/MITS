@@ -1,8 +1,17 @@
-{{#form-for model wrapper='twitter-bootstrap-3'}}
-  {{#each invites}}
-  {{input user placeholder='Username or email'}}
-  <button {{action 'removeMember' this}} class='btn btn-defaut'><span class='glyphicon glyphicon-remove'></span></button>
-  <br>
-  {{/each}}
-  <button {{action 'newMember' this}} class='btn btn-primary'>Add another member</button>
-{{/form-for}}
+{{#each invites}}
+<div class='row'>
+  <div class="col-lg-6">
+    <div class='form-group'>
+      <div class="input-group">
+        {{input type="text" value=identification placeholder='Enter username or email' classNames='form-control'}}
+        <span class="input-group-btn">
+          <button class="btn btn-default" type="button" {{action removeMember this}}><span class='glyphicon glyphicon-remove'></span></button>
+        </span>
+      </div>
+        <span class="help-block"></span>
+    </div>
+  </div>
+</div>
+{{/each}}
+<button {{action 'save' this}} class='btn btn-primary'>Add members</button>
+<button {{action 'newMember' this}} class='btn btn-primary'>Add another member</button>

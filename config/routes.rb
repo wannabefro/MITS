@@ -9,6 +9,11 @@ Mits::Application.routes.draw do
       end
       resources :mits
       resources :comments, only: [:index, :create]
+      resources :users, only: [] do
+        collection do
+          get 'exists'
+        end
+      end
       resources :teams do
         member do
           get 'admin_check'

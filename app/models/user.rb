@@ -23,4 +23,8 @@ class User < ActiveRecord::Base
     end
   end
 
+  def self.find_by_username_or_email(condition)
+    where("lower(username) = ? OR lower(email) = ?", condition.downcase, condition.downcase).take
+  end
+
 end

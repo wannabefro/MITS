@@ -4,12 +4,6 @@
   {{username}}
 {{/each}}
 <br>
-{{#if pendingMembers}}
-  <h5>Pending members</h5>
-  {{#each pendingMembers}}
-    {{username}}
-  {{/each}}
-{{/if}}
 {{#if isAdmin}}
   {{#link-to 'team_admin.index' this}}visit admin page{{/link-to}}
 {{/if}}
