@@ -7,7 +7,8 @@ App.Mit = DS.Model.extend(Ember.Validations.Mixin, {
 
   date: function(){
     return moment(this.get('createdAt')).format("MM-DD-YYYY");
-  }.property('createdAt')
+  }.property('createdAt'),
+
 });
 
 App.Mit.reopen({
