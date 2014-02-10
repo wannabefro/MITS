@@ -1,4 +1,19 @@
-{{#each}}
+{{#if invites.length}}
+  <h3>Current Invitations</h3>
+  {{#each invites}}
+  <p>
+    {{#link-to 'teams.show' this}}{{name}}{{/link-to}}
+    <button type="button" class="btn btn-default" {{action 'update' this 'accepted'}}>
+      <span class="glyphicon glyphicon-ok"></span> Accept
+    </button>
+    <button type="button" class="btn btn-default" {{action 'update' this 'declined'}}>
+      <span class="glyphicon glyphicon-remove"></span> Decline
+    </button>
+  </p>
+  {{/each}}
+  <hr>
+{{/if}}
+{{#each teamMember}}
   {{#link-to 'teams.show' this}}{{name}}{{/link-to}}<br>
 {{else}}
   <h5>You're not currently in any teams. {{#link-to 'teams.new'}}Make a new team{{/link-to}}</h5>

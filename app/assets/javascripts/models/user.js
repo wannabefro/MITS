@@ -2,7 +2,22 @@ App.User = DS.Model.extend(Ember.Validations.Mixin, {
   username: DS.attr(),
   mits: DS.hasMany('mit'),
   comments: DS.hasMany('comment'),
-  memberships: DS.hasMany('membership')
+  memberships: DS.hasMany('membership'),
+  invitations: function(){
+    var invites = this.get('memberships').filterBy('state', 'pending');
+    teams = invites.map(function(team){
+      return team.get('team');
+    })
+    return teams;
+  }.property('memberships.@each.state'),
+  teams: function(){
+    var teams = this.get('memberships').filterBy('state', 'accepted');
+    teams = teams.map(function(team){
+      return team.get('team');
+    })
+    return teams;
+  }.property('memberships.@each.state')
+
 });
 
 App.User.reopen({

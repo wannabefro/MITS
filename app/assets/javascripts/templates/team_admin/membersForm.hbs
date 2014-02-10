@@ -1,14 +1,16 @@
-{{#each invites}}
+<h3>Add Members</h3>
+<hr>
+{{#each invites itemController='invite' itemView='invite'}}
 <div class='row'>
   <div class="col-lg-6">
-    <div class='form-group'>
+    <div {{bind-attr class=":form-group foundUser:has-success noUser:has-error"}}>
       <div class="input-group">
         {{input type="text" value=identification placeholder='Enter username or email' classNames='form-control'}}
         <span class="input-group-btn">
           <button class="btn btn-default" type="button" {{action removeMember this}}><span class='glyphicon glyphicon-remove'></span></button>
         </span>
       </div>
-        <span class="help-block"></span>
+      <span class="help-block">{{errors}}</span>
     </div>
   </div>
 </div>
