@@ -3,6 +3,9 @@
 </div>
 {{title}}
 {{body}}
+{{#each tags}}
+  {{name}}
+{{/each}}
 {{#if isOwner}}
   <button class='btn' {{action destroyRecord this}}>Delete</button>
 {{/if}}

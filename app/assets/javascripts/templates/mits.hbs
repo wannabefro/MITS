@@ -1,6 +1,6 @@
 <div class='list-group'>
   {{#each groupByDate}}
-  {{#link-to 'mits.index' (query-parms date=group) classNames='list-group-item'}}
+  {{#link-to 'mits.index' classNames='list-group-item'}}
     <span class='badge'>{{content.length}}</span>
     {{group}}
   {{/link-to}}

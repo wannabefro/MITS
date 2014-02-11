@@ -12,7 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require bootstrap
 //= require handlebars
 //= require ember
 //= require ember-data
@@ -20,6 +19,7 @@
 //= require ember-validations
 //= require ember-simple-auth
 //= require moment.min
+//= require bootstrap
 //= require underscore.min
 //= require_self
 //= require mits

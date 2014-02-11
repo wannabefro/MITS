@@ -1,4 +1,5 @@
 App.MitsNewController = Ember.ObjectController.extend({
+  editing: false,
   valid: false,
   isValid: function(){
     var that = this;

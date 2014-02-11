@@ -4,9 +4,22 @@ App.Mit = DS.Model.extend(Ember.Validations.Mixin, {
   createdAt: DS.attr(),
   user: DS.belongsTo('user'),
   comments: DS.hasMany('comment'),
+  tags: DS.hasMany('tag'),
+  newTags: DS.attr(),
+  tagList: function(){
+    tags = this.get('tags').map(function(tag){
+      return tag.get('name');
+    });
+    return tags.join(',');
+  }.property('tags.@each'),
 
   date: function(){
-    return moment(this.get('createdAt')).format("MM-DD-YYYY");
+    var niceDate = moment(this.get('createdAt')).format("MM-DD-YYYY");
+    if (niceDate === moment().format("MM-DD-YYYY")){
+      return 'Today';
+    } else {
+      return niceDate;
+    }
   }.property('createdAt'),
 
 });

@@ -13,6 +13,7 @@ class Api::V1::MitsController < ApplicationController
 
   def create
     @mit = Mit.new(mit_params)
+    @mit.tag_list.add(params[:mit][:new_tags])
     if @mit.save
       respond_with @mit, status: :created, location: [:api, :v1, @mit]
     else
@@ -25,11 +26,13 @@ class Api::V1::MitsController < ApplicationController
   end
 
   def update
-      if @mit.update(mit_params)
-        respond_with @mit, status: :ok, location: [:api, :v1, @mit]
-      else
-        render json: @mit.errors, status: :unprocessable_entity
-      end
+    if @mit.update(mit_params)
+      @mit.tag_list = params[:mit][:new_tags]
+      @mit.save!
+      render json: @mit, status: :ok, location: [:api, :v1, @mit]
+    else
+      render json: @mit.errors, status: :unprocessable_entity
+    end
   end
 
   def destroy

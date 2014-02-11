@@ -1,6 +1,11 @@
 {{#form-for model wrapper='twitter-bootstrap-3'}}
   {{input title}}
   {{input body as="text"}}
+  {{#if editing}}
+    {{input tagList label='Tags' hint='Seperate each tag with a comma'}}
+  {{else}}
+    {{input newTags label='Tags' hint='Seperate each tag with a comma'}}
+  {{/if}}
   {{#if isValid}}
     <button type='submit' {{action 'save' this}} class='btn btn-primary'>Submit</button>
   {{else}}

@@ -8,6 +8,7 @@ App.MitsEditRoute = Ember.Route.extend(Ember.SimpleAuth.AuthenticatedRouteMixin,
   },
   actions: {
     save: function(model) {
+      model.set('newTags', model.get('tagList'));
       var _this = this;
       model.save().then(function() {
         _this.transitionTo('mit.index', model);

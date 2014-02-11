@@ -52,9 +52,11 @@ end
 # gem 'debugger', group: [:development, :test]
 gem 'state_machine'
 
+gem 'acts-as-taggable-on'
+
 gem 'bootstrap-sass'
 gem 'devise', '3.0.4'
 
 gem "active_model_serializers"
-gem "ember-rails", "~>0.14"
-gem "ember-source", "~>1.1"
+gem "ember-rails"
+gem "ember-source"
