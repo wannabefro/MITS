@@ -1,4 +1,4 @@
-App.TeamsShowController = Ember.ObjectController.extend({
+App.TeamIndexController = Ember.ObjectController.extend({
   needs: 'application',
   currentUser: Ember.computed.alias('controllers.application.currentUser'),
   showMemberForm: false,

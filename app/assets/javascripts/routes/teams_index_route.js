@@ -11,7 +11,7 @@ App.TeamsIndexRoute = Ember.Route.extend(Ember.SimpleAuth.AuthenticatedRouteMixi
       membership.set('state', state);
       membership.save().then(function(response){
         if (response.get('state') === 'accepted'){
-          _this.transitionTo('teams.show', model);
+          _this.transitionTo('team.index', model);
         } else if (response.get('state') === 'declined'){
           _this.controller.propertyDidChange('invitations');
           _this.transitionTo('teams.index');

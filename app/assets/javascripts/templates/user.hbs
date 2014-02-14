@@ -1,0 +1,6 @@
+<div class="page-header">
+  <h1>{{username}}</h1>
+</div>
+{{#each mits}}
+  <li>{{#link-to 'mit' this}}{{title}}{{/link-to}}</li>
+{{/each}}

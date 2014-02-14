@@ -12,7 +12,7 @@ App.TeamsNewRoute = Ember.Route.extend({
     save: function(model) {
       var _this = this;
       model.save().then(function() {
-        _this.transitionTo('teams.show', model);
+        _this.transitionTo('team.index', model);
       });
     },
     cancel: function() {

@@ -1,9 +1,10 @@
 <h3>{{name}}</h3>
 <h5>Members</h5>
 {{#each members}}
-  {{username}}
+<li>{{#link-to 'user' this}}{{username}}{{/link-to}}</li>
 {{/each}}
 <br>
 {{#if isAdmin}}
   {{#link-to 'team_admin.index' this}}visit admin page{{/link-to}}
 {{/if}}
+{{outlet}}

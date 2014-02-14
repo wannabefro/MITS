@@ -16,10 +16,15 @@ App.Router.map(function() {
   this.resource('teams', function(){
     this.route('index', {path: '/'});
     this.route('new');
-    this.route('show', {path: ':team_id'});
     this.resource('team_admin', {path: ':team_id/admin'}, function(){
       this.route('index', {path: '/'});
     });
+    this.resource('team', {path: ':team_id'}, function(){
+      this.route('index', {path: '/'});
+    });
+  });
+  this.resource('users', function(){
+    this.resource('user', {path: ':user_id'});
   });
 });
 

@@ -3,7 +3,7 @@
 </div>
 <h5>Members</h5>
 {{#each members}}
-  {{username}}
+{{#link-to 'user' this}}{{username}}{{/link-to}}
 {{/each}}
 <br>
 {{#if pendingMembers}}

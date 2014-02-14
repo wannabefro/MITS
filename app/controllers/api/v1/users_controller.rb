@@ -1,6 +1,10 @@
 class Api::V1::UsersController < ApplicationController
   before_action :authenticate_user!
   respond_to :json
+  def show
+    @user = User.find(params[:id])
+    render json: @user, serializer: UserMitSerializer
+  end
 
   def exists
     if User.find_by_username_or_email(params[:user])

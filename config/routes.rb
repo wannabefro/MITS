@@ -10,7 +10,7 @@ Mits::Application.routes.draw do
       resources :mits
       resources :memberships, only: [:update]
       resources :comments, only: [:index, :create]
-      resources :users, only: [] do
+      resources :users, only: [:show] do
         collection do
           get 'exists'
         end
