@@ -2,6 +2,7 @@ App.Mit = DS.Model.extend(Ember.Validations.Mixin, {
   title: DS.attr(),
   body: DS.attr(),
   createdAt: DS.attr(),
+  complete: DS.attr('boolean', {defaultValue: false}),
   user: DS.belongsTo('user'),
   comments: DS.hasMany('comment'),
   tags: DS.hasMany('tag'),

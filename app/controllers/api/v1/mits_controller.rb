@@ -50,7 +50,7 @@ class Api::V1::MitsController < ApplicationController
   end
 
   def mit_params
-    params.require(:mit).permit(:title, :body, :user_id)
+    params.require(:mit).permit(:title, :body, :user_id, :complete)
   end
 
   def is_owner

@@ -1,20 +1,34 @@
 <div class='page-header'>
-  <h1>Mit <small>for {{date}}</small></h1>
+  <h1>{{title}} <small>for {{date}}</small></h1>
 </div>
-{{title}}
-{{body}}
+<p class='lead'>{{body}}</p>
+<dl>
 {{#each tags}}
-  {{name}}
+<dt>Tags:</dt>
+<dd>
+<button class='btn btn-default'>{{name}}</button>
 {{/each}}
-{{#if isOwner}}
-  <button class='btn' {{action destroyRecord this}}>Delete</button>
-{{/if}}
+</dd>
+<dt>Actions:</dt>
 {{#if canEdit}}
   {{#link-to 'mits.edit' this classNames='btn btn-primary'}}Edit{{/link-to}}
 {{/if}}
+{{#if isOwner}}
+  {{#unless complete}}
+    <button class='btn btn-success' {{action complete this}}>Complete</button>
+  {{/unless}}
+  <button class='btn' {{action destroyRecord this}}>Delete</button>
+{{/if}}
+</dl>
 {{outlet}}
+<h3>Comments:</h3>
 {{#each cleanComments}}
-{{user.username}} {{body}}{{timeAgo createdAt}}<br>
+<div class="panel panel-success">
+  <div class="panel-heading">{{user.username}} commented {{timeAgo createdAt}}</div>
+  <div class="panel-body">
+    {{body}}
+  </div>
+</div>
 {{else}}
 <h5>There are currently no comments. {{#link-to 'comment.new' this}}Create one{{/link-to}}</h5>
 {{/each}}
