@@ -12,7 +12,8 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require handlebars
+//= require ember-config
+//= require handlebars-1.3
 //= require ember
 //= require ember-data
 //= require ember-easyForm

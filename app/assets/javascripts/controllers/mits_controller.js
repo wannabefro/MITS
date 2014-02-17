@@ -1,4 +1,5 @@
 App.MitsController = Ember.ArrayController.extend({
+  queryParams: ['date'],
   groupByDate: function() {
     var get = Ember.get;
     groupBy = 'date';
