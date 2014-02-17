@@ -1,4 +1,5 @@
 <div class='list-group'>
+  {{#link-to 'mits' classNames='list-group-item'}}All Mits{{/link-to}}
   {{#each groupByDate}}
   {{#link-to 'mits.index' (query-params date=group) classNames='list-group-item'}}
     <span class='badge'>{{content.length}}</span>

@@ -7,7 +7,11 @@ class Api::V1::MitsController < ApplicationController
   respond_to :xml, only: []
 
   def index
-    @mits = Mit.where(user: current_user)
+    if params[:date] != ''
+      @mits = Mit.where("user_id = ? AND DATE(created_at) = ?", current_user.id, params[:date])
+    else
+      @mits = Mit.where(user: current_user)
+    end
     respond_with @mits
   end
 

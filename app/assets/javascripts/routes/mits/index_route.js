@@ -1,5 +1,10 @@
 App.MitsIndexRoute = Ember.Route.extend({
-  model: function(){
-    return this.store.find('mit');
+  model: function(params){
+    return this.store.findQuery('mit', params);
+  },
+  actions: {
+    queryParamsDidChange: function(){
+      this.refresh();
+    }
   }
 });

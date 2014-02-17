@@ -17,8 +17,8 @@ App.CommentNewRoute = Ember.Route.extend(Ember.SimpleAuth.AuthenticatedRouteMixi
         _this.transitionTo('mit', model.get('mit'));
       });
     },
-    cancel: function() {
-      this.transitionTo('mits.index');
+    cancel: function(model) {
+      this.transitionTo('mit', model.get('mit'));
     }
   }
 });

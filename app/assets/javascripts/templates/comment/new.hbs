@@ -2,4 +2,5 @@
 {{#form-for model wrapper='twitter-bootstrap-3'}}
   {{input body as="text"}}
   <button {{action 'save' this}} class='btn btn-primary'>Save comment</button>
+  <button {{action 'cancel' this}} class='btn btn-warning'>Cancel</button>
 {{/form-for}}
