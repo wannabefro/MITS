@@ -3,10 +3,12 @@
 </div>
 <p class='lead'>{{body}}</p>
 <dl>
-{{#each tags}}
 <dt>Tags:</dt>
 <dd>
-<button class='btn btn-default'>{{name}}</button>
+{{#each tags}}
+  <button class='btn btn-default'>{{name}}</button>
+{{else}}
+  <p>There are no tags for this MIT</p>
 {{/each}}
 </dd>
 <dt>Actions:</dt>
