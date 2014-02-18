@@ -13,7 +13,7 @@ class Api::V1::TeamsController < ApplicationController
   def create
     @team = Team.new(team_params)
     if @team.save
-      @team.join(current_user)
+      @team.users << current_user
       @team.make_admin(current_user)
       render json: @team, status: :created
     else
