@@ -17,7 +17,7 @@ App.MitController = Ember.ObjectController.extend({
     if (this.get('content.date') === 'Today' && this.get('isOwner')){
       return true;
     }
-  }.property('currentUser', 'today'),
+  }.property('currentUser', 'today', 'content'),
 
   actions: {
     newComment: function(){

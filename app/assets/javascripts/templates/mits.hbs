@@ -1,3 +1,5 @@
+<div class='row'>
+<div class="col-md-3">
 <div class='list-group'>
   {{#link-to 'mits' classNames='list-group-item'}}All Mits{{/link-to}}
   {{#each groupByDate}}
@@ -7,4 +9,8 @@
   {{/link-to}}
   {{/each}}
 </div>
+</div>
+<div class="col-md-9">
 {{outlet}}
+</div>
+</div>

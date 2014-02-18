@@ -7,6 +7,7 @@ App.MitIndexRoute = Ember.Route.extend({
     complete: function(model){
       var _this = this;
       model.set('complete', true);
+      model.set('newTags', model.get('tagList'));
       model.save();
     }
   }
