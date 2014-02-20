@@ -42,7 +42,7 @@ Ember.SimpleAuth = Ember.Namespace.create({
     @type String
     @default 'index'
   */
-  routeAfterAuthentication: 'index',
+  routeAfterAuthentication: 'dashboard',
   /**
     The route to transition to after session invalidation; can be set through
     [Ember.SimpleAuth.setup](#Ember-SimpleAuth-setup).

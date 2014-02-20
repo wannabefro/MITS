@@ -32,4 +32,17 @@ describe Dashboard do
       expect(@dashboard.teams.include?(@team)).to be_false
     end
   end
+
+  context 'mit_days' do
+    before(:each) do
+      @user = FactoryGirl.create(:user, :with_mits)
+      @dashboard = Dashboard.new(@user)
+    end
+    it 'returns Mits grouped by date' do
+      grouped_mits = @dashboard.mit_days
+      expect(grouped_mits.length).to eql(2)
+      expect(grouped_mits.first.date).to eql(Date.today- 1.day)
+      expect(grouped_mits.first.count).to eql(5)
+    end
+  end
 end

@@ -12,14 +12,7 @@ class Dashboard
     @user.mits.where('created_at > ?', Time.now - 2.days)
   end
 
-  def past_week_progress
-    
-  end
-
-  def past_month_progress
-
-  end
-
-  def overall_progress
+  def mit_days
+    @user.mits.find_by_sql("select count(*), DATE(created_at), complete from mits group by DATE(created_at), complete ORDER by DATE(created_at), complete;")
   end
 end
