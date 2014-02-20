@@ -1,3 +1,4 @@
+<div class='col-md-3'>
 <h3>{{name}}</h3>
 <h5>Members</h5>
 {{#each members}}
@@ -7,4 +8,5 @@
 {{#if isAdmin}}
   {{#link-to 'team_admin.index' this}}visit admin page{{/link-to}}
 {{/if}}
+</div>
 {{outlet}}

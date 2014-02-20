@@ -1,0 +1,12 @@
+<h1>My Teams</h1>
+{{#each teams}}
+  {{#link-to 'team.index' this}}{{name}}{{/link-to}}
+{{else}}
+  <p>You currently have no teams</p>
+{{/each}}
+<h1>Recent Mits</h1>
+{{#each mits}}
+  {{#link-to 'mit' this}}{{title}}{{/link-to}}
+{{else}}
+   <p>No recent Mits</p>
+{{/each}}

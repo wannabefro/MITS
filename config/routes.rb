@@ -20,6 +20,7 @@ Mits::Application.routes.draw do
           get 'admin_check'
         end
       end
+    resources :dashboards, only: [:show]
     end
   end
   root :to => 'assets#index'
