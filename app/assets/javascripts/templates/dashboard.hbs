@@ -1,12 +1,22 @@
-<h1>My Teams</h1>
+<h3>My Teams</h3>
+<hr>
 {{#each teams}}
   {{#link-to 'team.index' this}}{{name}}{{/link-to}}
 {{else}}
   <p>You currently have no teams</p>
 {{/each}}
-<h1>Recent Mits</h1>
-{{#each mits}}
-  {{#link-to 'mit' this}}{{title}}{{/link-to}}
+<h3>Recent Mits</h3>
+<hr>
+{{#each recentMits}}
+  <h4>{{group}}</h4>
+  {{#each content}}
+    {{#link-to 'mit' this}}{{title}}{{/link-to}}
+  {{/each}}
 {{else}}
    <p>No recent Mits</p>
+{{/each}}
+{{-graph data=groupedStats}}
+<h3>Stats</h3>
+{{#each groupedStats}}
+  <p>{{this.0.date}}</p>
 {{/each}}

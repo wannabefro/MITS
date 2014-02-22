@@ -22,6 +22,8 @@
 //= require moment.min
 //= require bootstrap
 //= require underscore.min
+//= require d3.min
+//= require dimple.min
 //= require_self
 //= require mits
 
