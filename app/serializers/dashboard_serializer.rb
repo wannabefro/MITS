@@ -13,6 +13,6 @@ class DashboardSerializer < ActiveModel::Serializer
   end
 
   def id
-    rand(10000).floor
+    1
   end
 end

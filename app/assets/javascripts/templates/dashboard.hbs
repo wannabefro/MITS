@@ -10,13 +10,9 @@
 {{#each recentMits}}
   <h4>{{group}}</h4>
   {{#each content}}
-    {{#link-to 'mit' this}}{{title}}{{/link-to}}
+    {{#link-to 'mit' this}}{{title}}{{/link-to}}<br>
   {{/each}}
 {{else}}
    <p>No recent Mits</p>
 {{/each}}
 {{-graph data=groupedStats}}
-<h3>Stats</h3>
-{{#each groupedStats}}
-  <p>{{this.0.date}}</p>
-{{/each}}
