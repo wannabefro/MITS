@@ -17,7 +17,9 @@
 {{/if}}
 {{#if isOwner}}
   {{#unless complete}}
-    <button class='btn btn-success' {{action complete this}}>Complete</button>
+    {{#if canComplete}}
+      <button class='btn btn-success' {{action complete this}}>Complete</button>
+    {{/if}}
   {{/unless}}
   <button class='btn' {{action destroyRecord this}}>Delete</button>
 {{/if}}

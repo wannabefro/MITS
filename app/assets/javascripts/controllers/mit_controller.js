@@ -13,6 +13,15 @@ App.MitController = Ember.ObjectController.extend({
     return this.get('comments').filterBy('isDirty', false);
   }.property('comments'),
 
+  canComplete: function(){
+    var createdAt = moment(new Date(this.get('createdAt')), 'MM-DD-YYYY');
+    var today = moment(new Date(), 'MM-DD-YYYY');
+    var diff = createdAt.diff(today, 'days'); 
+    if (diff < 2){
+      return true;
+    }
+  }.property('complete'),
+
   canEdit: function(){
     if (this.get('content.date') === 'Today' && this.get('isOwner')){
       return true;
