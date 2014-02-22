@@ -1,7 +1,10 @@
 App.DashboardRoute = Ember.Route.extend(Ember.SimpleAuth.AuthenticatedRouteMixin, {
   model: function(params, transition){
     if (transition.router.currentHandlerInfos){
-      this.modelFor('dashboard').reload();
+      try{
+        this.modelFor('dashboard').reload();
+      } catch(e){
+      }
     }
     return this.store.find('dashboard', 1);
   }
