@@ -11,5 +11,5 @@ App.MitsNewController = Ember.ObjectController.extend({
       that.set('valid', valid);
     })
     return this.get('valid');
-  }.property('title', 'body')
+  }.property('title', 'body', 'valid')
 });

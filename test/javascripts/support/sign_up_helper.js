@@ -20,8 +20,24 @@ function mockSignin(){
     responseText: {
       access_token:"f9EEz7qsrEGkkN8YrxGt",
       token_type:"bearer",
-      user:{user:{"id":1,"username":"test"}}
+      user:{user:{"id":1,"username":'test'}}
     }
   });
+}
+
+function mockDashboard(){
+  $.mockjax({
+    url: '/api/v1/dashboards/1',
+    responseText: {
+      mits: [{"id":1, "title": 'AwesomeTitle'}]
+    }
+  });
+}
+
+function signInAsUser(){
+  mockSignin();
+  fillIn('.form-inline .username', 'test');
+  fillIn('.form-inline .password', 'Password1');
+  click('button:contains("Sign In")');
 }
 

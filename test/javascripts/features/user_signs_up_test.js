@@ -28,5 +28,6 @@ test('Creating a user', function(){
 QUnit.moduleStart(function(){
   mockRegistrations();
   mockSignin();
+  mockDashboard();
 });
 
