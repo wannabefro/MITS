@@ -1,6 +1,11 @@
 class Api::V1::UsersController < ApplicationController
   before_action :authenticate_user!
   respond_to :json
+
+  def index
+    render json: User.all, each_serializer: SimpleUserSerializer
+  end
+
   def show
     @user = User.find(params[:id])
     render json: @user, serializer: UserMitSerializer

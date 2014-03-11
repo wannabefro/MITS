@@ -1,4 +1,4 @@
-module('Sign up', {
+module('Sign in', {
   setup: function() {
   },
   teardown: function() {

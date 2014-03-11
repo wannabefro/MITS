@@ -32,16 +32,16 @@
         <li><a {{action 'invalidateSession'}} href='#'>Logout</a></li>
         {{else}}
         {{#link-to 'register' tagName='li' href=false}}
-          {{#link-to 'register'}}Sign Up{{/link-to}}
+          {{#link-to 'register' classNames='btn btn-primary'}}Sign Up{{/link-to}}
         {{/link-to}}
-        <form class="form-inline navbar-btn" {{action "login" on='submit'}}>
+        <form class="navbar-form navbar-right" {{action "login" on='submit'}}>
           <div class="form-group">
             {{input class="username form-control" value=identification type="text" placeholder="Username or Email"}}
           </div>
           <div class="form-group">
             {{input class="password form-control" value=password type="password" placeholder="Password"}}
           </div>
-          <button class="submit btn btn-primary" type="submit">Sign In</button>
+          <button class="submit btn btn-info" type="submit">Sign In</button>
         </form>
         {{/if}}
       </ul>

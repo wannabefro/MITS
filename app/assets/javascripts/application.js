@@ -23,6 +23,7 @@
 //= require bootstrap
 //= require underscore.min
 //= require d3.min
+//= require typeahead
 //= require dimple.min
 //= require_self
 //= require mits

@@ -5,7 +5,7 @@
   <div class="col-lg-6">
     <div {{bind-attr class=":form-group foundUser:has-success noUser:has-error"}}>
       <div class="input-group">
-        {{input type="text" value=identification placeholder='Enter username or email' classNames='form-control'}}
+        {{input type="text" value=identification placeholder='Enter username' classNames='form-control typeahead'}}
         <span class="input-group-btn">
           <button class="btn btn-default" type="button" {{action removeMember this}}><span class='glyphicon glyphicon-remove'></span></button>
         </span>
@@ -15,5 +15,7 @@
   </div>
 </div>
 {{/each}}
-<button {{action 'save' this}} class='btn btn-primary'>Add members</button>
+{{#if invites}}
+  <button {{action 'save' this}} class='btn btn-primary'>Add members</button>
+{{/if}}
 <button {{action 'newMember' this}} class='btn btn-primary'>Add another member</button>
